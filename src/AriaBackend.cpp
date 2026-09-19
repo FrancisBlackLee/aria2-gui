@@ -187,7 +187,7 @@ QString AriaBackend::validateUrl(const QString &text) {
     return {};
 }
 QJsonObject AriaBackend::transferOptions(int connections) {
-    // Match the user's working CLI command. Apply per task as well as globally:
+    // Apply the standard retry policy per task as well as globally:
     // restored sessions can otherwise retain the old 10K speed cutoff.
     return {{"continue", "true"}, {"max-tries", "0"}, {"retry-wait", "5"},
             {"connect-timeout", "30"}, {"timeout", "30"}, {"lowest-speed-limit", "0"},
